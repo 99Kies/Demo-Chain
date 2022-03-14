@@ -3,13 +3,13 @@ use super::{
 	ParachainInfo, ParachainSystem, PolkadotXcm, Runtime, Tokens, TreasuryPalletId, UnknownTokens,
 	Vec, XcmpQueue,
 };
-
 use codec::{Decode, Encode};
 use frame_support::{
 	match_type, parameter_types,
 	traits::{Everything, Nothing},
 	weights::Weight,
 };
+use frame_system::EnsureRoot;
 use pallet_xcm::XcmPassthrough;
 use polkadot_parachain::primitives::Sibling;
 #[cfg(feature = "std")]
@@ -389,4 +389,9 @@ impl orml_tokens::Config for Runtime {
 // orml unknown tokens
 impl orml_unknown_tokens::Config for Runtime {
 	type Event = Event;
+}
+
+impl orml_xcm::Config for Runtime {
+	type Event = Event;
+	type SovereignOrigin = EnsureRoot<AccountId>;
 }

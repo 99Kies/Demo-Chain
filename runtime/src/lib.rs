@@ -504,6 +504,8 @@ construct_runtime!(
 		XTokens: orml_xtokens::{Pallet, Storage, Call, Event<T>} = 35,
 		UnknownTokens: orml_unknown_tokens::{Pallet, Storage, Event} = 36,
 		Currencies: orml_currencies::{Pallet, Call, Event<T>} = 38,
+		OrmlXcm: orml_xcm::{Pallet, Call, Event<T>} = 39,
+
 
 		// Template
 		TemplatePallet: pallet_template::{Pallet, Call, Storage, Event<T>}  = 40,

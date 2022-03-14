@@ -88,6 +88,7 @@ orml-tokens = { git = "https://github.com/open-web3-stack/open-runtime-module-li
 orml-xtokens = { git = "https://github.com/open-web3-stack/open-runtime-module-library", branch = "master", default-features = false }
 orml-xcm-support = { git = "https://github.com/open-web3-stack/open-runtime-module-library", branch = "master", default-features = false }
 orml-traits = { git = "https://github.com/open-web3-stack/open-runtime-module-library", branch = "master", default-features = false }
+orml-xcm = { git = "https://github.com/open-web3-stack/open-runtime-module-library", branch = "master", default-features = false }
 
 [features]
 default = [
@@ -146,6 +147,7 @@ std = [
 	"orml-tokens/std",
 	"orml-xcm-support/std",
 	"orml-traits/std",
+	"orml-xcm/std",
 ]
 
 runtime-benchmarks = [
