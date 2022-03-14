@@ -1,4 +1,5 @@
 use cumulus_primitives_core::ParaId;
+use hex_literal::hex;
 use parachain_template_runtime::{
 	AccountId, AuraId, Signature, SudoConfig, TokensConfig, EXISTENTIAL_DEPOSIT,
 };
@@ -137,7 +138,8 @@ pub fn local_testnet_config() -> ChainSpec {
 			testnet_genesis(
 				// initial collators.
 				// Sudo Alice
-				get_account_id_from_seed::<sr25519::Public>("Alice"),
+				// get_account_id_from_seed::<sr25519::Public>("Alice"),
+				hex!["34c63c6b3213570b0513c706f6c49a4ce253570ac213e53c919d2cd6f8913a07"].into(),
 				vec![
 					(
 						get_account_id_from_seed::<sr25519::Public>("Alice"),
