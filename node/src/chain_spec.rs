@@ -1,5 +1,7 @@
 use cumulus_primitives_core::ParaId;
-use parachain_template_runtime::{AccountId, AuraId, Signature, TokensConfig, EXISTENTIAL_DEPOSIT};
+use parachain_template_runtime::{
+	AccountId, AuraId, Signature, SudoConfig, TokensConfig, EXISTENTIAL_DEPOSIT,
+};
 use sc_chain_spec::{ChainSpecExtension, ChainSpecGroup};
 use sc_service::ChainType;
 use serde::{Deserialize, Serialize};
@@ -77,6 +79,8 @@ pub fn development_config() -> ChainSpec {
 		move || {
 			testnet_genesis(
 				// initial collators.
+				// Sudo Alice
+				get_account_id_from_seed::<sr25519::Public>("Alice"),
 				vec![
 					(
 						get_account_id_from_seed::<sr25519::Public>("Alice"),
@@ -132,6 +136,8 @@ pub fn local_testnet_config() -> ChainSpec {
 		move || {
 			testnet_genesis(
 				// initial collators.
+				// Sudo Alice
+				get_account_id_from_seed::<sr25519::Public>("Alice"),
 				vec![
 					(
 						get_account_id_from_seed::<sr25519::Public>("Alice"),
@@ -178,6 +184,7 @@ pub fn local_testnet_config() -> ChainSpec {
 }
 
 fn testnet_genesis(
+	root_key: AccountId,
 	invulnerables: Vec<(AccountId, AuraId)>,
 	endowed_accounts: Vec<AccountId>,
 	id: ParaId,
@@ -218,5 +225,6 @@ fn testnet_genesis(
 			safe_xcm_version: Some(SAFE_XCM_VERSION),
 		},
 		tokens: TokensConfig { balances: vec![] },
+		sudo: SudoConfig { key: Some(root_key) },
 	}
 }
