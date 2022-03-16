@@ -1,17 +1,17 @@
 {
   "name": "Local Testnet",
   "id": "local_testnet",
-  "chainType": "Local",
+  "chainType": "Live",
   "bootNodes": [],
   "telemetryEndpoints": null,
-  "protocolId": "template-local",
+  "protocolId": "demochain",
   "properties": {
     "ss58Format": 42,
     "tokenDecimals": 12,
     "tokenSymbol": "DD"
   },
-  "relay_chain": "rococo-local",
-  "para_id": 3000,
+  "relay_chain": "rococo",
+  "para_id": 2077,
   "consensusEngine": null,
   "codeSubstitutes": {},
   "genesis": {
@@ -21,7 +21,7 @@
       },
       "parachainSystem": null,
       "parachainInfo": {
-        "parachainId": 3000
+        "parachainId": 2077
       },
       "sudo": {
         "key": "5DFuEcgNPjBmrJncevFzHmrNn52G5JC5aoTJPstnbRsyBRu2"
